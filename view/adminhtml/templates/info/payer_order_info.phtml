@@ -1,0 +1,20 @@
+<?php
+$specificInfo = $block->getSpecificInformation();
+?>
+
+<img src="https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-invoice.png" alt="payer"/>
+<?php if ($specificInfo): ?>
+    <table class="data-table admin__table-secondary">
+    <?php foreach ($specificInfo as $label => $value):?>
+        <tr>
+            <th><?= $block->escapeHtml($label) ?>:</th>
+            <td>
+                <?= /* @noEscape */ nl2br($block->escapeHtml(implode("\n", $block->getValueAsArray($value, true)))) ?>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </table>
+<?php endif;?>
+
+<?= $block->getChildHtml() ?>
+

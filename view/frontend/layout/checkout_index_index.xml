@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <script src="Payer_Checkout::js/getAddress.js"/>
+    </head>
+    <body>
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="totals" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="weee" xsi:type="array">
+                                                            <item name="component"  xsi:type="string">Payer_Checkout/js/view/checkout/cart/totals/fee</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="deps" xsi:type="array">
+                                                            <item name="0" xsi:type="string">checkout.steps.shipping-step.step-config</item>
+                                                            <item name="1" xsi:type="string">checkoutProvider</item>
+                                                        </item>
+                                                        <item name="popUpForm" xsi:type="array">
+                                                            <item name="element" xsi:type="string">#opc-new-shipping-address</item>
+                                                            <item name="options" xsi:type="array">
+                                                                <item name="type" xsi:type="string">popup</item>
+                                                                <item name="responsive" xsi:type="boolean">true</item>
+                                                                <item name="innerScroll" xsi:type="boolean">true</item>
+                                                                <item name="title" xsi:type="string" translate="true">Shipping Address</item>
+                                                                <item name="trigger" xsi:type="string">opc-new-shipping-address</item>
+                                                                <item name="buttons" xsi:type="array">
+                                                                    <item name="save" xsi:type="array">
+                                                                        <item name="text" xsi:type="string" translate="true">Save Address</item>
+                                                                        <item name="class" xsi:type="string">action primary action-save-address</item>
+                                                                    </item>
+                                                                    <item name="cancel" xsi:type="array">
+                                                                        <item name="text" xsi:type="string" translate="true">Cancel</item>
+                                                                        <item name="class" xsi:type="string">action secondary action-hide-popup</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                    <item name="component" xsi:type="string">Magento_Checkout/js/view/shipping</item>
+                                                    <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                    <item name="sortOrder" xsi:type="string">1</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="before-form" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="get-address" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Payer_Checkout/js/view/form/element/get-address</item>
+                                                                    <item name="displayArea" xsi:type="string">get-address</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="component" xsi:type="string">uiComponent</item>
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="renders" xsi:type="array">
+                                                            <!-- merge payment method renders here -->
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="payer_checkout-payments" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Payer_Checkout/js/view/payment/payer_checkout-payments</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="payer_checkout_all" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                        <item name="payer_checkout_card" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                        <item name="payer_checkout_invoice" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                        <item name="payer_checkout_bank" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                        <item name="payer_checkout_installment" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                        <item name="payer_checkout_swish" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

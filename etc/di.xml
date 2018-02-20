@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Invoice  -->
+    <virtualType name="PayerInvoiceFacade" type="Payer\Checkout\Model\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::INVOICE_CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Payer\Checkout\Block\Info\PayerInfo</argument>
+            <argument name="valueHandlerPool" xsi:type="object">PayerInvoiceValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">PayerInvoiceValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">PayerInvoiceCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInvoiceValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">PayerInvoiceCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInvoiceCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">PayerInvoicePaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInvoiceValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">PayerInvoiceConfigValueHandler</item>
+                <item name="can_cancel" xsi:type="string">Payer\Checkout\Gateway\Config\CanCancelHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInvoiceConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">PayerInvoicePaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInvoicePaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::INVOICE_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInvoiceCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">Payer\Checkout\Gateway\Command\DummyCommand</item>
+                <item name="capture" xsi:type="string">PayerCaptureCommand</item>
+                <!--<item name="refund" xsi:type="string">PayerInvoiceRefundCommand</item>-->
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCaptureCommand" type="Payer\Checkout\Gateway\Command\PayerCommand">
+        <arguments>
+            <argument name="builder" xsi:type="object">Payer\Checkout\Gateway\Request\CommitOrderBuilder</argument>
+            <argument name="requestValidator" xsi:type="object">Payer\Checkout\Gateway\Validator\Request\CommitOrderRequestValidator</argument>
+            <argument name="client" xsi:type="object">Payer\Checkout\Gateway\Client\CommitOrderClient</argument>
+            <argument name="handler" xsi:type="object">Payer\Checkout\Gateway\Response\CommitOrderResponseHandler</argument>
+            <argument name="responseValidator" xsi:type="object">Payer\Checkout\Gateway\Validator\Response\ResponseValidator</argument>
+        </arguments>
+    </virtualType>
+
+
+    <!--<virtualType name="PayerInvoiceRefundCommand" type="Payer\Checkout\Gateway\Command\PayerCommand">-->
+        <!--<arguments>-->
+            <!--<argument name="builder" xsi:type="object">Payer\Checkout\Gateway\Request\Invoice\RefundOrderBuilder</argument>-->
+            <!--<argument name="client" xsi:type="object">Payer\Checkout\Gateway\Http\PayerClient\Invoice\RefundClient</argument>-->
+            <!--<argument name="responseValidator" xsi:type="object">Payer\Checkout\Gateway\Validator\Response\ResponseValidator</argument>-->
+        <!--</arguments>-->
+    <!--</virtualType>-->
+
+    <!-- INSTALLMENT  -->
+    <virtualType name="PayerInstallmentFacade" type="Payer\Checkout\Model\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::INSTALLMENT_CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Payer\Checkout\Block\Info\PayerInfo</argument>
+            <argument name="valueHandlerPool" xsi:type="object">PayerInstallmentValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">PayerInstallmentValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">PayerInstallmentCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInstallmentValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">PayerInstallmentCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInstallmentCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">PayerInstallmentPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInstallmentValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">PayerInstallmentConfigValueHandler</item>
+                <item name="can_cancel" xsi:type="string">Payer\Checkout\Gateway\Config\CanCancelHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInstallmentConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">PayerInstallmentPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInstallmentPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::INSTALLMENT_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerInstallmentCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">Payer\Checkout\Gateway\Command\DummyCommand</item>
+                <item name="capture" xsi:type="string">PayerCaptureCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Card  -->
+    <virtualType name="PayerCardFacade" type="Payer\Checkout\Model\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::CARD_CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Payer\Checkout\Block\Info\PayerInfo</argument>
+            <argument name="valueHandlerPool" xsi:type="object">PayerCardValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">PayerCardValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">PayerCardCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCardValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">PayerCardCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCardCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">PayerCardPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCardValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">PayerCardConfigValueHandler</item>
+                <item name="can_cancel" xsi:type="string">Payer\Checkout\Gateway\Config\CanCancelHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCardConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">PayerCardPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCardPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::CARD_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerCardCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">Payer\Checkout\Gateway\Command\DummyCommand</item>
+                <!--<item name="capture" xsi:type="string">PayerCardCaptureCommand</item>-->
+                <!--<item name="refund" xsi:type="string">PayerCardRefundCommand</item>-->
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- BANK  -->
+    <virtualType name="PayerBankFacade" type="Payer\Checkout\Model\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::BANK_CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Payer\Checkout\Block\Info\PayerInfo</argument>
+            <argument name="valueHandlerPool" xsi:type="object">PayerBankValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">PayerBankValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">PayerBankCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerBankValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">PayerBankCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerBankCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">PayerBankPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerBankValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">PayerBankConfigValueHandler</item>
+                <item name="can_cancel" xsi:type="string">Payer\Checkout\Gateway\Config\CanCancelHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerBankConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">PayerBankPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerBankPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::BANK_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerBankCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">Payer\Checkout\Gateway\Command\DummyCommand</item>
+                <!--<item name="capture" xsi:type="string">PayerCardCaptureCommand</item>-->
+                <!--<item name="refund" xsi:type="string">PayerCardRefundCommand</item>-->
+            </argument>
+        </arguments>
+    </virtualType>
+
+
+    <!-- SWISH  -->
+    <virtualType name="PayerSwishFacade" type="Payer\Checkout\Model\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::SWISH_CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Payer\Checkout\Block\Info\PayerInfo</argument>
+            <argument name="valueHandlerPool" xsi:type="object">PayerSwishValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">PayerSwishValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">PayerSwishCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerSwishValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">PayerSwishCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerSwishCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">PayerSwishPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerSwishValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">PayerSwishConfigValueHandler</item>
+                <item name="can_cancel" xsi:type="string">Payer\Checkout\Gateway\Config\CanCancelHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerSwishConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">PayerSwishPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerSwishPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Payer\Checkout\Model\Ui\ConfigProvider::SWISH_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="PayerSwishCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">Payer\Checkout\Gateway\Command\DummyCommand</item>
+                <!--<item name="capture" xsi:type="string">PayerCardCaptureCommand</item>-->
+                <!--<item name="refund" xsi:type="string">PayerCardRefundCommand</item>-->
+            </argument>
+        </arguments>
+    </virtualType>
+
+
+    <!-- Plugins -->
+    <type name="Magento\Quote\Model\Cart\TotalsConverter">
+        <plugin name="add_handling_fee" type="Payer\Checkout\Plugin\HandlingFeeTotalSegmentPlugin"/>
+    </type>
+
+    <preference for="Magento\Tax\Model\Sales\Total\Quote\Tax" type="Payer\Checkout\Model\Tax\Sales\Total\Quote\Tax" />
+    <preference for="Magento\Tax\Helper\Data" type="Payer\Checkout\Helper\Tax\Data" />
+    <preference for="Magento\Sales\Model\Order\Invoice\Total\Tax" type="Payer\Checkout\Model\Total\Invoice\Tax" />
+    <preference for="Magento\Sales\Model\Order\Creditmemo\Total\Tax" type="Payer\Checkout\Model\Total\Creditmemo\Tax" />
+
+</config>

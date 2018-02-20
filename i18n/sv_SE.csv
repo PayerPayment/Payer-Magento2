@@ -1,0 +1,3 @@
+get_address,"Hämta Address",module,Mage_Checkout
+"National Id number","Personnummer",module,Mage_Checkout
+"Zip","Postnummer",module,Mage_Checkout

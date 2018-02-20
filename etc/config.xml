@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <payer_checkout_card>
+                <order_confirmation_capture>true</order_confirmation_capture>
+                <debug>1</debug>
+                <active>0</active>
+                <model>PayerCardFacade</model>
+                <order_status>pending</order_status>
+                <title>Payer Checkout Card</title>
+                <allowspecific>0</allowspecific>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_refund>0</can_refund>
+                <can_cancel>0</can_cancel>
+                <can_void>0</can_void>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>0</can_use_internal>
+                <sort_order>1</sort_order>
+
+                <is_gateway>1</is_gateway>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <distribution_type>Email</distribution_type>
+            </payer_checkout_card>
+
+            <payer_checkout_invoice>
+                <debug>1</debug>
+                <active>0</active>
+                <model>PayerInvoiceFacade</model>
+                <order_status>pending</order_status>
+                <title>payer checkout Invoice</title>
+                <allowspecific>0</allowspecific>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_refund>0</can_refund>
+                <can_cancel>0</can_cancel>
+                <can_void>0</can_void>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>0</can_use_internal>
+                <sort_order>1</sort_order>
+
+                <is_gateway>1</is_gateway>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <distribution_type>Email</distribution_type>
+            </payer_checkout_invoice>
+
+            <payer_checkout_bank>
+                <debug>1</debug>
+                <active>0</active>
+                <model>PayerBankFacade</model>
+                <order_status>pending</order_status>
+                <title>payer checkout Bank</title>
+                <allowspecific>0</allowspecific>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_refund>0</can_refund>
+                <can_cancel>0</can_cancel>
+                <can_void>0</can_void>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>0</can_use_internal>
+                <sort_order>1</sort_order>
+
+                <is_gateway>1</is_gateway>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <distribution_type>Email</distribution_type>
+            </payer_checkout_bank>
+
+            <payer_checkout_installment>
+                <debug>1</debug>
+                <active>0</active>
+                <model>PayerInstallmentFacade</model>
+                <order_status>pending</order_status>
+                <title>payer checkout Installment</title>
+                <min_order_total>1000</min_order_total>
+                <allowspecific>0</allowspecific>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_refund>0</can_refund>
+                <can_cancel>0</can_cancel>
+                <can_void>0</can_void>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>0</can_use_internal>
+                <sort_order>1</sort_order>
+
+                <is_gateway>1</is_gateway>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <distribution_type>Email</distribution_type>
+            </payer_checkout_installment>
+
+
+            <payer_checkout_swish>
+                <debug>1</debug>
+                <active>0</active>
+                <model>PayerSwishFacade</model>
+                <order_status>pending</order_status>
+                <title>payer checkout Swish</title>
+                <allowspecific>0</allowspecific>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_refund>0</can_refund>
+                <can_cancel>0</can_cancel>
+                <can_void>0</can_void>
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>0</can_use_internal>
+                <sort_order>1</sort_order>
+
+                <is_gateway>1</is_gateway>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <distribution_type>Email</distribution_type>
+            </payer_checkout_swish>
+        </payment>
+    </default>
+</config>

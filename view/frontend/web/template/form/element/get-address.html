@@ -1,0 +1,41 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<form class="form form-getaddress" data-role="get-address"
+      action="/payer/Getaddress/index"
+      method="post">
+    <fieldset id="get-address-fieldset" class="fieldset" data-bind="blockLoader: isLoading">
+        <input data-bind='attr: {value: getFormKey()}' type="hidden" name="form_key"/>
+        <span id="get-address-message">&nbsp;</span><br/>
+        <label class="label" for="customer-ssn">
+            <span data-bind="i18n: 'National Id number'"></span>
+        </label>
+        <input class="input-text"
+               type="number"
+               name="ssn"
+               data-validate="{'validate-ssn':true}"
+               id="customer-ssn"
+        />
+        <br/><br/>
+        <label class="label" for="customer-zip">
+            <span data-bind="i18n: 'Zip'"></span>
+        </label>
+
+        <input class="input-text"
+               type="number"
+               name="zip"
+               data-validate="{ 'validate-ssn':true}"
+               id="customer-zip"
+        />
+        <br/><br/>
+        <input type="button"
+               class="button action primary"
+               name="getAddress"
+               data-bind="attr: {value: $t('get_address')}"
+               onclick="payerCheckout.getAddress();"
+        />
+    </fieldset>
+</form>

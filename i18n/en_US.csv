@@ -1,0 +1,48 @@
+"Order has been canceled.","Order has been canceled."
+"Missing Id or Zip","Missing Id or Zip"
+"Invalid form key","Invalid form key"
+"Payer error : An error occured","Payer error : An error occured"
+"Payment has been successful.","Payment has been successful."
+"invalid request.","invalid request."
+Shipping,Shipping
+fee,fee
+"Payer error 1100 : Capture only allowed for payer_checkout_invoice & payer_checkout_installment","Payer error 1100 : Capture only allowed for payer_checkout_invoice & payer_checkout_installment"
+"Payer error 1100 : payer_merhcant_reference_id is not set","Payer error 1100 : payer_merhcant_reference_id is not set"
+"Svea error 1100 : Totals do not match","Svea error 1100 : Totals do not match"
+"National Id number","National Id number"
+Zip,Zip
+"Payer Checkout Card","Payer Checkout Card"
+Enabled,Enabled
+Title,Title
+"Agent ID","Agent ID"
+"Key 1","Key 1"
+"Key 2","Key 2"
+Debug,Debug
+get_address,"Get adress"
+"Auto capture order on confirmation","Auto capture order on confirmation"
+"New Order Status","New Order Status"
+"Acknowledged Order Status","Acknowledged Order Status"
+"Payment from Applicable Countries","Payment from Applicable Countries"
+"Payment from Specific Countries","Payment from Specific Countries"
+"Sort Order","Sort Order"
+"Developers / Advaced","Developers / Advaced"
+"Activate Callback URI override","Activate Callback URI override"
+"Callback/Push URI override
+                            <br />
+                            <small>
+                            <i>will override base-url part</i>
+                            <small>
+                        ","Callback/Push URI override
+                            <br />
+                            <small>
+                            <i>will override base-url part</i>
+                            <small>
+                        "
+"Payer Checkout Invoice","Payer Checkout Invoice"
+"Interaction minimal","Interaction minimal"
+"Payer Checkout Bank","Payer Checkout Bank"
+"Payer Checkout Installment","Payer Checkout Installment"
+"Payer Checkout Swish","Payer Checkout Swish"
+"Shipping Address","Shipping Address"
+"Save Address","Save Address"
+Cancel,Cancel

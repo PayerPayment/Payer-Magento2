@@ -1,0 +1,601 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="tax" translate="label" type="text">
+            <group id="classes">
+                <field id="handling_fee_tax_class" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Tax Class for Payment handling fee</label>
+                    <source_model>Magento\Tax\Model\TaxClass\Source\Product</source_model>
+                </field>
+            </group>
+
+            <group id="cart_display">
+                <field id="payment_handling_fee" translate="label" type="select" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Payment Handling Fee</label>
+                    <source_model>Magento\Tax\Model\System\Config\Source\Tax\Display\Type</source_model>
+                    <backend_model>Magento\Tax\Model\Config\Notification</backend_model>
+                </field>
+            </group>
+        </section>
+
+        <section id="payment">
+            <group id="payer_checkout_card" translate="label" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Payer Checkout Card</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Agent ID</label>
+                </field>
+                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 1</label>
+                </field>
+                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 2</label>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="order_confirmation_capture" translate="label" type="select" sortOrder="95" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Auto capture order on confirmation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                        id="order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="100"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                        id="acknowledged_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Acknowledged Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+                <group
+                    id="developers"
+                    translate="label"
+                    type="text"
+                    sortOrder="160"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                <label>Developers / Advaced</label>
+                    <field
+                        id="callback_uri_override"
+                        translate="label"
+                        type="select"
+                        sortOrder="20"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Activate Callback URI override</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field
+                        id="callback_uri"
+                        translate="label"
+                        type="text"
+                        sortOrder="30"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Callback/Push URI override
+                            &lt;br /&gt;
+                            &lt;small&gt;
+                            &lt;i&gt;will override base-url part&lt;/i&gt;
+                            &lt;small&gt;
+                        </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                </group>
+            </group>
+            <group id="payer_checkout_invoice" translate="label" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Payer Checkout Invoice</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Agent ID</label>
+                </field>
+                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 1</label>
+                </field>
+                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 2</label>
+                </field>
+                <field id="soap_username" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Soap username</label>
+                </field>
+                <field id="soap_password" translate="label" type="text" sortOrder="66" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Soap password</label>
+                </field>
+                <field id="interaction_minimal" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Interaction minimal</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="payment_handling_fee" translate="label comment" type="text" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment Handling Fee</label>
+                    <comment>Excl. tax</comment>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                        id="order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="100"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                        id="acknowledged_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Acknowledged Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+                <group
+                    id="developers"
+                    translate="label"
+                    type="text"
+                    sortOrder="160"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                <label>Developers / Advaced</label>
+                    <field
+                        id="callback_uri_override"
+                        translate="label"
+                        type="select"
+                        sortOrder="20"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Activate Callback URI override</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field
+                        id="callback_uri"
+                        translate="label"
+                        type="text"
+                        sortOrder="30"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Callback/Push URI override
+                            &lt;br /&gt;
+                            &lt;small&gt;
+                            &lt;i&gt;will override base-url part&lt;/i&gt;
+                            &lt;small&gt;
+                        </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                </group>
+            </group>
+            <group id="payer_checkout_bank" translate="label" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Payer Checkout Bank</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Agent ID</label>
+                </field>
+                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 1</label>
+                </field>
+                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 2</label>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                        id="order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="100"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                        id="acknowledged_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Acknowledged Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+                <group
+                    id="developers"
+                    translate="label"
+                    type="text"
+                    sortOrder="160"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                <label>Developers / Advaced</label>
+                    <field
+                        id="callback_uri_override"
+                        translate="label"
+                        type="select"
+                        sortOrder="20"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Activate Callback URI override</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field
+                        id="callback_uri"
+                        translate="label"
+                        type="text"
+                        sortOrder="30"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Callback/Push URI override
+                            &lt;br /&gt;
+                            &lt;small&gt;
+                            &lt;i&gt;will override base-url part&lt;/i&gt;
+                            &lt;small&gt;
+                        </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                </group>
+            </group>
+            <group id="payer_checkout_installment" translate="label" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Payer Checkout Installment</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Agent ID</label>
+                </field>
+                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 1</label>
+                </field>
+                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 2</label>
+                </field>
+                <field id="soap_username" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Soap username</label>
+                </field>
+                <field id="soap_password" translate="label" type="text" sortOrder="66" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Soap password</label>
+                </field>
+                <field id="interaction_minimal" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Interaction minimal</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                        id="order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="100"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                        id="acknowledged_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Acknowledged Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+                <group
+                    id="developers"
+                    translate="label"
+                    type="text"
+                    sortOrder="160"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                <label>Developers / Advaced</label>
+                    <field
+                        id="callback_uri_override"
+                        translate="label"
+                        type="select"
+                        sortOrder="20"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Activate Callback URI override</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field
+                        id="callback_uri"
+                        translate="label"
+                        type="text"
+                        sortOrder="30"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Callback/Push URI override
+                            &lt;br /&gt;
+                            &lt;small&gt;
+                            &lt;i&gt;will override base-url part&lt;/i&gt;
+                            &lt;small&gt;
+                        </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                </group>
+            </group>
+            <group id="payer_checkout_swish" translate="label" type="text" sortOrder="50" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>Payer Checkout Swish</label>
+                <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Agent ID</label>
+                </field>
+                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 1</label>
+                </field>
+                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Key 2</label>
+                </field>
+                <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Test Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field
+                        id="order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="100"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                        id="acknowledged_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Acknowledged Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="130" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+                <group
+                    id="developers"
+                    translate="label"
+                    type="text"
+                    sortOrder="160"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+                >
+                <label>Developers / Advaced</label>
+                    <field
+                        id="callback_uri_override"
+                        translate="label"
+                        type="select"
+                        sortOrder="20"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Activate Callback URI override</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field
+                        id="callback_uri"
+                        translate="label"
+                        type="text"
+                        sortOrder="30"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Callback/Push URI override
+                            &lt;br /&gt;
+                            &lt;small&gt;
+                            &lt;i&gt;will override base-url part&lt;/i&gt;
+                            &lt;small&gt;
+                        </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

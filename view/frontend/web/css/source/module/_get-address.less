@@ -1,0 +1,14 @@
+.opc-wrapper {
+  .form-getaddress {
+    .lib-css(border-bottom, 1px solid @checkout-shipping-item-before__border-color);
+    .lib-css(margin, @checkout-shipping-item-mobile__padding);
+    .lib-css(padding, @checkout-shipping-item-mobile__padding);
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .opc-wrapper {
+    .form-getaddress {
+      .lib-css(max-width, @checkout-shipping-address__max-width);
+    }
+  }
+}
