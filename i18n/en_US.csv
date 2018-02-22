@@ -50,10 +50,14 @@ Title,Title
                             <small>
                         "
 "Payer Checkout Invoice","Payer Checkout Invoice"
+"Soap username","Soap username"
+"Soap password","Soap password"
 "Interaction minimal","Interaction minimal"
+"Excl. tax","Excl. tax"
 "Payer Checkout Bank","Payer Checkout Bank"
 "Payer Checkout Installment","Payer Checkout Installment"
 "Payer Checkout Swish","Payer Checkout Swish"
 "Shipping Address","Shipping Address"
 "Save Address","Save Address"
 Cancel,Cancel
+"A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation.","A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation."

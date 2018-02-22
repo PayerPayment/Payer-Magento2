@@ -15,9 +15,14 @@
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
 
-        <div class="icons">
-            <!-- ko foreach: getIcons() -->
-            <img data-bind="attr: {src: url}">
+        <div class="payment-method-choose-installment">
+            <!-- ko if: getHasInstallmentOptions() -->
+            <select id="installmentOptions" name="payer_installment">
+                <!-- ko foreach: getChooseInstallmentOptions() -->
+                <option data-bind="text: label, attr: {value: value, label: label, 'data-additional': additional}, "></option>
+                <!--/ko-->
+            </select>
+            <div id="installment-additional-text"></div>
             <!--/ko-->
         </div>
 
@@ -26,7 +31,6 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>
-
 
         <!-- ko if: payerForm().agent_id -->
             <div class="payer-form">
@@ -43,7 +47,6 @@
                 </form>
             </div>
         <!--/ko-->
-
 
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->

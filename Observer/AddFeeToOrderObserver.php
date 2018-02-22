@@ -17,7 +17,8 @@ use Magento\Framework\Event\ObserverInterface;
  *
  * @package Payer\Checkout\Observer
  */
-class AddFeeToOrderObserver implements ObserverInterface
+class AddFeeToOrderObserver
+    implements ObserverInterface
 {
     /**
      * Move handling fee data from quote to order
@@ -25,6 +26,7 @@ class AddFeeToOrderObserver implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
+
         $quote = $observer->getQuote();
         $order = $observer->getOrder();
 

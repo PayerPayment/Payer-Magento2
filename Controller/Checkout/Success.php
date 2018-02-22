@@ -69,7 +69,7 @@ class Success extends
                 return $this->reportAndReturn(false, $message);
             }
             $result  = $this->callbackHandler->handleCallback($payerData);
-            $status  = $result['status'] ?? false;
+            $status  = $result['status']  ?? false;
             $message = $result['message'] ?? '';
 
             return $this->reportAndReturn($status, $message);

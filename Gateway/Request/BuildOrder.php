@@ -77,7 +77,11 @@ class BuildOrder implements \Payer\Checkout\Gateway\Request\OrderActionBuilderIn
             $lengthOfHash       = $allowedLength - (strlen((string)$orderId) + strlen($separator));
             $hashedBaseUrl      = sha1($this->config->getBaseUrl());
             $referenceId        = substr($hashedBaseUrl, 0, $lengthOfHash) . $separator . $orderId;
-            $paymentOptions     = $this->getPaymentOptions($paymentMethod);
+
+            $additional = $order->getPayment()->getAdditionalInformation();
+            $months = ($additional['installment_months']) ?? $additional['installment_months'];
+
+            $paymentOptions     = $this->getPaymentOptions($paymentMethod, $months);
 
             $orderData = [
                 'payment' => [

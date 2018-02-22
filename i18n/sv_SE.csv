@@ -1,3 +1,7 @@
 get_address,"Hämta Address",module,Mage_Checkout
 "National Id number","Personnummer",module,Mage_Checkout
 "Zip","Postnummer",module,Mage_Checkout
+"A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation.","En uppläggningsavgift om %s debiteras vid första betalningen och är därför inte med i månadsberäkningen"
+"annual instalment","annuitet"
+"%s months, %s / month, %s", "%s mån, %s / mån, %s"
+"interest free","räntefritt"

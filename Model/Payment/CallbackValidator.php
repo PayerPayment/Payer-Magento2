@@ -284,7 +284,7 @@ class CallbackValidator
      *
      * @param array $data
      *
-     * @return bool
+     * @return array|bool
      */
     protected function cancel($data)
     {

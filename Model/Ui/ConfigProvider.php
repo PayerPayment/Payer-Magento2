@@ -10,11 +10,15 @@
 namespace Payer\Checkout\Model\Ui;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
+use Magento\Framework\Currency;
 use Magento\Framework\Escaper;
 use Magento\Framework\UrlInterface;
 use Magento\Store\Model\ScopeInterface;
 use Payer\Checkout\Gateway\Config\Config;
+use Magento\Checkout\Model\Session;
 use Payer\Checkout\Model\Config\Api\Configuration;
+use Magento\Framework\Pricing\Helper\Data as CurrencyHelper;
+
 
 /**
  * Class ConfigProvider
@@ -31,6 +35,10 @@ class ConfigProvider implements ConfigProviderInterface
     const INVOICE_CODE      = 'payer_checkout_invoice';
     const SWISH_CODE        = 'payer_checkout_swish';
 
+    const INITIAL_FEE       = 0;
+    const INTEREST          = 1;
+    const MONTHLY_FEE       = 2;
+
     const REDIRECT_URL      = 'payer/checkout/redirect';
 
     const XML_PATH_DISPLAY_CART_PAYMENT_HANDLING_FEE = 'tax/cart_display/payment_handling_fee';
@@ -43,28 +51,36 @@ class ConfigProvider implements ConfigProviderInterface
      * @var UrlInterface
      */
     protected $urlBuilder;
+    protected $session;
+    protected $currency;
 
     /**
      * ConfigProvider constructor.
      *
-     * @param Escaper $escaper
-     * @param \Magento\Framework\View\Asset\Repository $assetRepository
-     * @param \Magento\Payment\Helper\Data $paymentHelper
+     * @param \Magento\Framework\Escaper                         $escaper
+     * @param \Magento\Framework\View\Asset\Repository           $assetRepository
+     * @param \Magento\Payment\Helper\Data                       $paymentHelper
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-     * @param UrlInterface $urlBuilder
+     * @param \Magento\Checkout\Model\Session                    $session
+     * @param \Magento\Framework\UrlInterface                    $urlBuilder
+     * @param \Magento\Framework\Pricing\Helper\Data             $currency
      */
     public function __construct(
         Escaper $escaper,
         \Magento\Framework\View\Asset\Repository $assetRepository,
         \Magento\Payment\Helper\Data $paymentHelper,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        UrlInterface $urlBuilder
+        Session $session,
+        UrlInterface $urlBuilder,
+        CurrencyHelper $currency
     ) {
         $this->escaper          = $escaper;
         $this->assetRepository  = $assetRepository;
         $this->paymentHelper    = $paymentHelper;
         $this->scopeConfig      = $scopeConfig;
         $this->urlBuilder       = $urlBuilder;
+        $this->session          = $session;
+        $this->currency         = $currency;
     }
 
     /**
@@ -86,6 +102,12 @@ class ConfigProvider implements ConfigProviderInterface
             if ($this->getMethod($method)->isActive()) {
                 $data[$method]['icons'] = $this->getIcons($method);
                 $data[$method]['redirectOnSuccessUrl'] = $redirectUrl;
+                switch ($method) {
+                    case 'payer_checkout_installment':
+                        $data[$method]['installmentOptions'] = $this->calculateInstallmentOptions();
+                    break;
+                    default: break;
+                }
             }
         }
 
@@ -190,5 +212,75 @@ class ConfigProvider implements ConfigProviderInterface
         }
 
         return $result;
+    }
+
+    /**
+     *
+     * @return array
+     */
+    protected function calculateInstallmentOptions()
+    {
+        $returnData     = [];
+        $quote          = $this->session->getQuote();
+        $grandTotal     = $quote->getGrandTotal();
+
+        $minimalInteraction = $this->scopeConfig->getValue(
+            'payment/payer_checkout_installment/interaction_minimal',
+            ScopeInterface::SCOPE_STORE
+        );
+
+        if ($grandTotal > 50000 || !$minimalInteraction) {
+
+            return $returnData;
+        }
+
+        $data = [
+            3  => [95, 0, 29],
+            6  => [195, 0, 29],
+            12 => [295, 0, 29],
+            24 => [295, 9.95, 29],
+            36 => [295, 9.95, 29]
+        ];
+
+        $monthly = null;
+        foreach ($data as $k => $months) {
+            $interest            = ($months[self::INTEREST] / 100) / 12;
+            $fee                 = $months[self::MONTHLY_FEE];
+            $oneTimeFee          = $months[self::INITIAL_FEE];
+            $monthly[$k]['text'] = '';
+            $oneTimeFeeFormatted = $this->currency->currency(
+                ($months[self::INTEREST])?$months[self::INITIAL_FEE]:0,
+                true,
+                false
+            );
+
+            $monthly[$k]['months'] = $k;
+            if (0 === ($months[self::INTEREST])) {
+                $monthly[$k]['value'] = round((($grandTotal + $oneTimeFee + ($fee * $k))) / $k);
+            } else {
+                $monthly[$k]['text']  = __(
+                    sprintf(
+                        "A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation.",
+                        $oneTimeFeeFormatted
+                    )
+                );
+                $monthly[$k]['value'] = round($grandTotal * ($interest / (pow((1 + $interest), $k) - 1))
+                                              + $grandTotal * $interest + $fee);
+            }
+        }
+        foreach ($monthly as $months => $values) {
+            $additionalText = $values['text'];
+            $cost           = $values['value'];
+            $terms          = ($data[$months][self::INTEREST]) ?__('annual instalment'):__('interest free');
+            $formattedCost = $this->currency->currency($cost, true, false);
+            $returnData[] = [
+                'value'      => $values['months'],
+                'label'      => __(sprintf("%s months, %s / month, %s", $months, $formattedCost, $terms)),
+                'additional' => $additionalText,
+            ];
+        }
+
+        return $returnData;
+
     }
 }

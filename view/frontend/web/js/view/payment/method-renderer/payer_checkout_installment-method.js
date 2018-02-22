@@ -37,8 +37,45 @@ define(
              * Get icons
              */
             getIcons: function() {
+
                 return window.checkoutConfig.payment.payer_checkout_installment.icons;
             },
+
+            getChooseInstallmentOptions: function() {
+              var selectBox      = document.getElementById('installmentOptions');
+              var textField      = document.getElementById('installment-additional-text');
+                if (typeof selectBox != 'undefined') {
+                  selectBox.addEventListener('change', function (e) {
+                    var selectedOption = document.querySelector('#installmentOptions option:checked');
+                    textField.innerHTML = selectedOption.getAttribute('data-additional');
+                  });
+                }
+
+              return window.checkoutConfig.payment.payer_checkout_installment.installmentOptions;
+            },
+
+            getHasInstallmentOptions: function () {
+
+                return window.checkoutConfig.payment.payer_checkout_installment.installmentOptions.length;
+            },
+
+            getData: function() {
+              installment_months = null;
+              if (document.querySelectorAll('#installmentOptions option').length) {
+                var installment_months=document.querySelector('#installmentOptions option:checked').value;
+              }
+
+              var result  = {
+                "method": this.getCode(),
+                "po_number": null,
+                "additional_data": {
+                  'installment_months': installment_months
+                }
+              };
+
+              return result;
+            },
+
             /**
              * After successful order, fetch and post payer form
              */
@@ -65,6 +102,8 @@ define(
                     }
                 });
             },
+
+
         });
     }
 );
