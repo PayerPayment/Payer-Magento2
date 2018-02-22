@@ -8,6 +8,11 @@
         />
         <label data-bind="attr: {'for': getCode()}" class="label">
             <span data-bind="text: getTitle()"></span>
+            <div class="icons">
+                <!-- ko foreach: getIcons() -->
+                <img data-bind="attr: {src: url}">
+                <!--/ko-->
+            </div>
         </label>
     </div>
     <div class="payment-method-content">
@@ -15,11 +20,7 @@
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
 
-        <div class="icons">
-            <!-- ko foreach: getIcons() -->
-            <img data-bind="attr: {src: url}">
-            <!--/ko-->
-        </div>
+
 
         <div class="payment-method-billing-address">
             <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
