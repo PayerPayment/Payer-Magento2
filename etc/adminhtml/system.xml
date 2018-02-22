@@ -67,6 +67,18 @@
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field
+                        id="auth_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Auth Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
                         id="acknowledged_order_status"
                         translate="label"
                         type="select"
@@ -193,6 +205,18 @@
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field
+                        id="auth_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Auth Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
                         id="acknowledged_order_status"
                         translate="label"
                         type="select"
@@ -298,6 +322,18 @@
                         showInStore="1"
                 >
                     <label>New Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
+                        id="auth_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Auth Order Status</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field
@@ -422,6 +458,18 @@
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field
+                        id="auth_order_status"
+                        translate="label"
+                        type="select"
+                        sortOrder="105"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                >
+                    <label>Auth Order Status</label>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field
                         id="acknowledged_order_status"
                         translate="label"
                         type="select"
@@ -529,6 +577,18 @@
                     <label>New Order Status</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
+                <field
+                    id="auth_order_status"
+                    translate="label"
+                    type="select"
+                    sortOrder="105"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1"
+            >
+                <label>Auth Order Status</label>
+                <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+            </field>
                 <field
                         id="acknowledged_order_status"
                         translate="label"

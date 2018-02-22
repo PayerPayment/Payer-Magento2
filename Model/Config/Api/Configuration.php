@@ -335,4 +335,13 @@ class Configuration
     {
         return $this->getConfigValue($method, 'acknowledged_order_status');
     }
+    /**
+     * Get status for acknowledged order
+     *
+     * @return string
+     */
+    public function getAuthOrderStatus($method)
+    {
+        return $this->getConfigValue($method, 'auth_order_status');
+    }
 }

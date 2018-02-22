@@ -109,7 +109,7 @@ class CallbackHandler
             $method  = $payment->getMethod();
 
             $methodFromCallback = $this->config->payerCodeToConfigCode($data['payer_payment_type']);
-            $acknowledgedStatus = $this->config->getAcknowledgedOrderStatus($payment->getMethod());
+            $authedStatus = $this->config->getAuthOrderStatus($payment->getMethod());
 
             if ($method != $methodFromCallback) {
                 $payment->setMethod($methodFromCallback);
@@ -119,12 +119,12 @@ class CallbackHandler
                      from: {$method} to: {$methodFromCallback}"
                 );
 
-                $order->addStatusToHistory($acknowledgedStatus,
+                $order->addStatusToHistory($authedStatus,
                     "Payment Method has changed: from {$method} to {$methodFromCallback}.
                     Verify if invoice fee needs to be refunded."
                 );
             }
-            $order->addStatusToHistory($acknowledgedStatus, 'Order was acknowledged.');
+            $order->addStatusToHistory($authedStatus, 'Order was authed.');
 
             $payment->setAdditionalInformation(
                 'payer_auth',
@@ -169,6 +169,16 @@ class CallbackHandler
             $payment        = $order->getPayment();
             $paymentMethod  = $payment->getMethod();
             $status         = $this->config->getAcknowledgedOrderStatus($paymentMethod);
+            $autoCapture    = $this->config->getCaptureOnConfirmation($payment->getMethod());
+
+            if ($autoCapture) {
+                $payment->registerCaptureNotification($order->getBaseTotalDue());
+                $order->setStatus(Order::STATE_PROCESSING);
+            } else {
+                $payment->authorize($isOnline = true, $order->getBaseTotalDue());
+            }
+
+            $payment->save();
 
             $order->addStatusToHistory($status, 'Recieved Settle callback.');
             $payment->setAdditionalInformation(
@@ -178,14 +188,14 @@ class CallbackHandler
             $this->transactionHelper->addTransaction(
                 $payment,
                 $data,
-                TransactionInterface::TYPE_AUTH,
+                TransactionInterface::TYPE_PAYMENT,
                 false
             );
             $this->orderRepository->save($order);
 
             return [
                 'httpResponseCode' => 202,
-                'message' => "Auth Callback for OrderId: {$orderId}  Handled."
+                'message' => "Settlement Callback for OrderId: {$orderId}  Handled."
             ];
         } catch(\Exception $e) {
             $this->logger->critical($e->getMessage());
@@ -210,18 +220,7 @@ class CallbackHandler
                 strpos($data['payer_merchant_reference_id'], "_") + 1
             );
             $order       = $this->orderRepository->get($orderId);
-            $payment     = $order->getPayment();
-            $autoCapture = $this->config->getCaptureOnConfirmation($payment->getMethod());
 
-            if ($autoCapture) {
-                $payment->registerCaptureNotification($order->getBaseTotalDue());
-                $order->setStatus(Order::STATE_PROCESSING);
-            } else {
-                $payment->authorize($isOnline = true, $order->getBaseTotalDue());
-            }
-
-            $payment->save();
-            $this->orderRepository->save($order);
             $this->orderEmail->send($order);
 
             return [

@@ -262,15 +262,6 @@ class CallbackValidator
             $payment    = $order->getPayment();
             $info       = $payment->getAdditionalInformation();
 
-
-            if (!isset($info['payer_settle'])) {
-
-                return [
-                    'isValid' => false,
-                    'message' => "Payer settleCallback not recieved for order {$orderId}."
-                ];
-            }
-
             $allowedStates = [
                 Order::STATE_NEW,
                 Order::STATE_PENDING_PAYMENT,
