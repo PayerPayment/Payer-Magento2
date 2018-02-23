@@ -79,7 +79,7 @@ class BuildOrder implements \Payer\Checkout\Gateway\Request\OrderActionBuilderIn
             $referenceId        = substr($hashedBaseUrl, 0, $lengthOfHash) . $separator . $orderId;
 
             $additional = $order->getPayment()->getAdditionalInformation();
-            $months = ($additional['installment_months']) ?? $additional['installment_months'];
+            $months = ($additional['installment_months']) ?? null;
 
             $paymentOptions     = $this->getPaymentOptions($paymentMethod, $months);
 
