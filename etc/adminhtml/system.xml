@@ -87,7 +87,7 @@
                         showInWebsite="1"
                         showInStore="1"
                 >
-                    <label>Acknowledged Order Status</label>
+                    <label>Acknowledged Order Status (after settle-callback)</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
@@ -237,7 +237,7 @@
                         showInWebsite="1"
                         showInStore="1"
                 >
-                    <label>Acknowledged Order Status</label>
+                    <label>Acknowledged Order Status (after settle-callback)</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
@@ -369,7 +369,7 @@
                         showInWebsite="1"
                         showInStore="1"
                 >
-                    <label>Acknowledged Order Status</label>
+                    <label>Acknowledged Order Status (after settle-callback)</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
@@ -514,7 +514,7 @@
                         showInWebsite="1"
                         showInStore="1"
                 >
-                    <label>Acknowledged Order Status</label>
+                    <label>Acknowledged Order Status (after settle-callback)</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
@@ -646,7 +646,7 @@
                         showInWebsite="1"
                         showInStore="1"
                 >
-                    <label>Acknowledged Order Status</label>
+                    <label>Acknowledged Order Status (after settle-callback)</label>
                     <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                 </field>
                 <field id="allowspecific" translate="label" type="allowspecific" sortOrder="120" showInDefault="1"
