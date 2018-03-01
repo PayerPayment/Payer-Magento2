@@ -113,7 +113,7 @@
                     showInWebsite="1"
                     showInStore="1"
                 >
-                <label>Developers / Advaced</label>
+                <label>Developers / Advanced</label>
                     <field
                         id="callback_uri_override"
                         translate="label"
@@ -263,7 +263,7 @@
                     showInWebsite="1"
                     showInStore="1"
                 >
-                <label>Developers / Advaced</label>
+                <label>Developers / Advanced</label>
                     <field
                         id="callback_uri_override"
                         translate="label"
@@ -395,7 +395,7 @@
                     showInWebsite="1"
                     showInStore="1"
                 >
-                <label>Developers / Advaced</label>
+                <label>Developers / Advanced</label>
                     <field
                         id="callback_uri_override"
                         translate="label"
@@ -540,7 +540,7 @@
                     showInWebsite="1"
                     showInStore="1"
                 >
-                <label>Developers / Advaced</label>
+                <label>Developers / Advanced</label>
                     <field
                         id="callback_uri_override"
                         translate="label"
@@ -672,7 +672,7 @@
                     showInWebsite="1"
                     showInStore="1"
                 >
-                <label>Developers / Advaced</label>
+                <label>Developers / Advanced</label>
                     <field
                         id="callback_uri_override"
                         translate="label"
