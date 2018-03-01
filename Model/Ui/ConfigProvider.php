@@ -160,39 +160,42 @@ class ConfigProvider implements ConfigProviderInterface
      */
     protected function getIcons($method)
     {
+        $configIcon = $this->scopeConfig->getValue(
+            "payment/{$method}/developers/icon_url",
+            ScopeInterface::SCOPE_STORE
+        );
+        $configIcon = !empty(trim($configIcon)) ? $configIcon : null;
+        $cdnBase = 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/';
+
         $icons = [
             self::BANK_CODE => [
                 [
                     'label' => 'Bank',
-                    'url'   => 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-bank.png',
+                    'url'   => $configIcon ?? $cdnBase . '2018/payer-icon-payment_method-bank.png',
                 ],
             ],
             self::CARD_CODE => [
                 [
                     'label' => 'Card1',
-                    'url'   => 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-card_01.png',
+                    'url'   => $configIcon ?? $cdnBase . '2018/payer-icon-payment_method-card_01.png',
                 ],
-                //[
-                    //'label' => 'Card2',
-                    //'url'   => 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-card_02.png',
-                //],
             ],
             self::INSTALLMENT_CODE => [
                 [
                     'label' => 'Installment',
-                    'url'   => 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-collector.png',
+                    'url'   => $configIcon ?? $cdnBase . '2018/payer-icon-payment_method-collector.png',
                 ],
             ],
             self::INVOICE_CODE => [
                 [
                     'label' => 'Invoice',
-                    'url'   => 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-invoice.png',
+                    'url'   => $configIcon ?? $cdnBase . '2018/payer-icon-payment_method-invoice.png',
                 ],
             ],
             self::SWISH_CODE => [
                 [
                     'label' => 'Swish',
-                    'url'   => 'https://raw.githubusercontent.com/PayerPayment/Payer-ImagePack/master/icons/checkout/2018/payer-icon-payment_method-swish.png',
+                    'url'   => $configIcon ?? $cdnBase . '2018/payer-icon-payment_method-swish.png',
                 ],
             ],
         ];

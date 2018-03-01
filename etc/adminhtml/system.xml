@@ -143,6 +143,18 @@
                         </label>
                         <can_be_empty>1</can_be_empty>
                     </field>
+                    <field
+                        id="icon_url"
+                        translate="label"
+                        type="text"
+                        sortOrder="30"
+                        showInDefault="1"
+                        showInWebsite="1"
+                        showInStore="1"
+                    >
+                        <label>Override the URL to icon/image (full url)</label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
                 </group>
             </group>
             <group id="payer_checkout_invoice" translate="label" type="text" sortOrder="50" showInDefault="1"
@@ -281,6 +293,18 @@
                         </label>
                         <can_be_empty>1</can_be_empty>
                     </field>
+                    <field
+                            id="icon_url"
+                            translate="label"
+                            type="text"
+                            sortOrder="30"
+                            showInDefault="1"
+                            showInWebsite="1"
+                            showInStore="1"
+                    >
+                        <label>Override the URL to icon/image (full url)</label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
                 </group>
             </group>
             <group id="payer_checkout_bank" translate="label" type="text" sortOrder="50" showInDefault="1"
@@ -399,6 +423,18 @@
                             &lt;i&gt;will override base-url part&lt;/i&gt;
                             &lt;small&gt;
                         </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                    <field
+                            id="icon_url"
+                            translate="label"
+                            type="text"
+                            sortOrder="30"
+                            showInDefault="1"
+                            showInWebsite="1"
+                            showInStore="1"
+                    >
+                        <label>Override the URL to icon/image (full url)</label>
                         <can_be_empty>1</can_be_empty>
                     </field>
                 </group>
@@ -534,6 +570,18 @@
                         </label>
                         <can_be_empty>1</can_be_empty>
                     </field>
+                    <field
+                            id="icon_url"
+                            translate="label"
+                            type="text"
+                            sortOrder="30"
+                            showInDefault="1"
+                            showInWebsite="1"
+                            showInStore="1"
+                    >
+                        <label>Override the URL to icon/image (full url)</label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
                 </group>
             </group>
             <group id="payer_checkout_swish" translate="label" type="text" sortOrder="50" showInDefault="1"
@@ -652,6 +700,18 @@
                             &lt;i&gt;will override base-url part&lt;/i&gt;
                             &lt;small&gt;
                         </label>
+                        <can_be_empty>1</can_be_empty>
+                    </field>
+                    <field
+                            id="icon_url"
+                            translate="label"
+                            type="text"
+                            sortOrder="30"
+                            showInDefault="1"
+                            showInWebsite="1"
+                            showInStore="1"
+                    >
+                        <label>Override the URL to icon/image (full url)</label>
                         <can_be_empty>1</can_be_empty>
                     </field>
                 </group>
