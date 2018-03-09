@@ -55,7 +55,7 @@ class Settle extends
             if ($validation['isValid'] === false) {
 
                 return $this->reportAndReturn(
-                    $validation['httpResponseCode'],
+                    $validation['httpStatus'],
                     $validation['message']
                 );
             }
