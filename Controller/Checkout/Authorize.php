@@ -81,9 +81,9 @@ class Authorize extends
     protected function reportAndReturn($httpStatus, $logMessage)
     {
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_RAW);
-        $resultPage->setHttpResponseCode($httpStatus);
+        $resultPage->setHttpResponseCode(202);
 
-        $this->logger->info($logMessage);
+        $this->logger->info($httpStatus .' - '. $logMessage);
 
         if ($httpStatus == 202) {
             $resultPage->setContents('TRUE');
