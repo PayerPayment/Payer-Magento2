@@ -36,7 +36,7 @@ Title,Title
 "Payment from Applicable Countries","Payment from Applicable Countries"
 "Payment from Specific Countries","Payment from Specific Countries"
 "Sort Order","Sort Order"
-"Developers / Advanced","Developers / Advanced"
+"Developers / Advaced","Developers / Advaced"
 "Activate Callback URI override","Activate Callback URI override"
 "Callback/Push URI override
                             <br />
@@ -61,3 +61,6 @@ Title,Title
 "Save Address","Save Address"
 Cancel,Cancel
 "A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation.","A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation."
+get_address,"Get adress"
+"By supplying this information, you won't have to fill out the form manually, as well as get access to all available payment methods","By supplying this information, you won't have to fill out the form manually, as well as get access to all available payment methods",module,Mage_Checkout
+"Fill out above fields and hit continue, and we'll supply your address information automatically, alternatively you may fill out the form below by hand","Fill out above fields and hit continue, and we'll supply your address information automatically, alternativly you may fill out the form below by hand",module,Mage_Checkout

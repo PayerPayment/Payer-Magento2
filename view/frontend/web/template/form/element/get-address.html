@@ -19,6 +19,8 @@
                data-validate="{'validate-ssn':true}"
                id="customer-ssn"
         />
+        <br/>
+        <i data-bind="i18n: 'By supplying this information, you won\'t have to fill out the form manually, as well as get access to all available payment methods'"></i>
         <br/><br/>
         <label class="label" for="customer-zip">
             <span data-bind="i18n: 'Zip'"></span>
@@ -37,5 +39,7 @@
                data-bind="attr: {value: $t('get_address')}"
                onclick="payerCheckout.getAddress();"
         />
+        <br/>
+        <i data-bind="i18n: 'Fill out above fields and hit continue, and we\'ll supply your address information automatically, alternatively you may fill out the form below by hand'"></i>
     </fieldset>
 </form>

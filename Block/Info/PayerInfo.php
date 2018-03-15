@@ -34,15 +34,17 @@ class PayerInfo extends \Magento\Payment\Block\ConfigurableInfo
      */
     protected function getPayerInfo()
     {
-        $payerInfo  = [];
+        $testMode   = '';
         $payment    = $this->getInfo();
         $data       = $payment->getAdditionalInformation();
         $order      = $payment->getOrder();
-
+        if (isset($data['payer_settle']['payer_testmode'])) {
+            $testMode = (int)filter_var($data['payer_settle']['payer_testmode'], FILTER_VALIDATE_BOOLEAN);
+        }
         if (isset($data['payer_settle'])) {
             $payerInfo = [
                 'Payment Method'    => $this->getMethod()->getTitle(),
-                'Mode'              => isset($data['payer_settle']['payer_testmode']) ? 'TEST' : 'LIVE',
+                'Mode'              => $testMode ? 'TEST' : 'LIVE',
                 'Status'            => __('Payment Authorized'),
                 'Payer Order Id'    => $data['payer_settle']['payer_merchant_reference_id'],
                 'Payer Payment Id'  => $data['payer_settle']['payer_payment_id'],
@@ -50,7 +52,7 @@ class PayerInfo extends \Magento\Payment\Block\ConfigurableInfo
         } elseif (isset($data['payer_auth'])) {
             $payerInfo = [
                 'Payment Method'    => $this->getMethod()->getTitle(),
-                'Mode'              => isset($data['payer_auth']['payer_testmode']) ? 'TEST' : 'LIVE',
+                'Mode'              => $testMode ? 'TEST' : 'LIVE',
                 'Status'            => __('Order Authorized'),
                 'Payer Order Id'    => $data['payer_auth']['payer_merchant_reference_id'],
             ];

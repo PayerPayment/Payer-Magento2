@@ -1,7 +1,9 @@
-get_address,"Hämta Address",module,Mage_Checkout
-"National Id number","Personnummer",module,Mage_Checkout
+"National Id number","Personnummer(ÅÅMMDDXXXX)/Org.nummer",module,Mage_Checkout
+"By supplying this information, you won't have to fill out the form manually, as well as get access to all available payment methods","Genom att ange dina uppgifter slipper du fylla i alla fälten själv samt får tillgång till alla tillgängliga betalsätt.",module,Mage_Checkout
+"Fill out above fields and hit continue, and we'll supply your address information automatically, alternatively you may fill out the form below by hand","Fyll i uppgifter ovan och tryck på fortsätt så fyller vi enkelt i dina adressuppgifter åt dig. Alternativt ange dina uppgifter manuellt nedan.",module,Mage_Checkout
 "Zip","Postnummer",module,Mage_Checkout
 "A setup fee of% s is charged at first payment and is therefore not included in the monthly calculation.","En uppläggningsavgift om %s debiteras vid första betalningen och är därför inte med i månadsberäkningen"
 "annual instalment","annuitet"
-"%s months, %s / month, %s", "%s mån, %s / mån, %s"
+"%1 months, %2 / month, %3", "%1 mån, %2 / mån, %3"
 "interest free","räntefritt"
+get_address,"Fortsätt",module,Mage_Checkout

@@ -278,7 +278,7 @@ class ConfigProvider implements ConfigProviderInterface
             $formattedCost = $this->currency->currency($cost, true, false);
             $returnData[] = [
                 'value'      => $values['months'],
-                'label'      => __(sprintf("%s months, %s / month, %s", $months, $formattedCost, $terms)),
+                'label'      => __("%1 months, %2 / month, %3", $months, $formattedCost, $terms),
                 'additional' => $additionalText,
             ];
         }
