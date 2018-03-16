@@ -64,7 +64,7 @@ class Success extends
             $validation = $this->callbackValidator->validate($payerData);
             if ($validation['isValid'] === false) {
                 $this->messageManager->addError(__('invalid request.'));
-                $message = $result['message'] ?? 'Validation failed.';
+                $message = $validation['message'] ?? 'Validation failed.';
 
                 return $this->reportAndReturn(false, $message);
             }
