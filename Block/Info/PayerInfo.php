@@ -38,10 +38,9 @@ class PayerInfo extends \Magento\Payment\Block\ConfigurableInfo
         $payment    = $this->getInfo();
         $data       = $payment->getAdditionalInformation();
         $order      = $payment->getOrder();
-        if (isset($data['payer_settle']['payer_testmode'])) {
-            $testMode = (int)filter_var($data['payer_settle']['payer_testmode'], FILTER_VALIDATE_BOOLEAN);
-        }
+
         if (isset($data['payer_settle'])) {
+            $testMode = (int)filter_var($data['payer_settle']['payer_testmode'], FILTER_VALIDATE_BOOLEAN);
             $payerInfo = [
                 'Payment Method'    => $this->getMethod()->getTitle(),
                 'Mode'              => $testMode ? 'TEST' : 'LIVE',
@@ -50,6 +49,7 @@ class PayerInfo extends \Magento\Payment\Block\ConfigurableInfo
                 'Payer Payment Id'  => $data['payer_settle']['payer_payment_id'],
             ];
         } elseif (isset($data['payer_auth'])) {
+            $testMode = (int)filter_var($data['payer_auth']['payer_testmode'], FILTER_VALIDATE_BOOLEAN);
             $payerInfo = [
                 'Payment Method'    => $this->getMethod()->getTitle(),
                 'Mode'              => $testMode ? 'TEST' : 'LIVE',
