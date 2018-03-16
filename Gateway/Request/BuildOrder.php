@@ -239,7 +239,7 @@ class BuildOrder implements \Payer\Checkout\Gateway\Request\OrderActionBuilderIn
             $this->orderRows[] = [
                 'type'                  => 'freeform',
                 'line_number'           => $this->nextLineNumber,
-                'article_number'        => 'Shipping-fee',
+                'article_number'        => __('Shipping-fee'),
                 'description'           => $shippingTitle,
                 'unit_price'            => $shippingIncTax,
                 'unit_vat_percentage'   => $vatPercent,
@@ -252,7 +252,7 @@ class BuildOrder implements \Payer\Checkout\Gateway\Request\OrderActionBuilderIn
                 $this->orderRows[] = [
                     'type'                => 'freeform',
                     'line_number'         => $this->nextLineNumber,
-                    'article_number'      => 'discount-Shipping-fee',
+                    'article_number'      => __('discount-Shipping-fee'),
                     'description'         => substr(sprintf('discount-%s', $shippingTitle), 0, 40),
                     'unit_price'          => -$shippingDiscount,
                     'unit_vat_percentage' => $vatPercent,

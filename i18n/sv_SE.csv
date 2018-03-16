@@ -7,3 +7,4 @@
 "%1 months, %2 / month, %3", "%1 mån, %2 / mån, %3"
 "interest free","räntefritt"
 get_address,"Fortsätt",module,Mage_Checkout
+"Shipping-fee", "Fraktavgift"
