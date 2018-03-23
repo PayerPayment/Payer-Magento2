@@ -9,9 +9,9 @@
 
 namespace Payer\Checkout\Block\Info;
 
-class PayerInfo extends \Magento\Payment\Block\ConfigurableInfo
+class PayerInfo extends \Magento\Payment\Block\Info
 {
-    protected $_template = 'Payer_Checkout::info/payer_order_info.phtml';
+    protected $_template = 'Payer_Checkout::info/default.phtml';
 
     /**
      * Prepare Payer-specific payment information.

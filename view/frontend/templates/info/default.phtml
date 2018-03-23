@@ -1,0 +1,9 @@
+<?php
+/**
+ * @var \Payer\Checkout\Block\Info\PayerInfo $block
+ */
+$title = $block->escapeHtml($block->getMethod()->getTitle());
+?>
+<dl class="payment-method">
+    <dt class="title"><?= /* @noEscape */ $title ?></dt>
+</dl>
