@@ -33,18 +33,16 @@ class Init
     /**
      * Setup new payer client with credentials.
      *
-     * @param $method
-     *
      * @return \Payer\Sdk\PayerGatewayInterface
      */
-    public function setupClient($method)
+    public function setupClient()
     {
         $credentials = [
-            'agent_id' => $this->config->getAgentId($method),
-            'post'     => $this->config->getPostKeys($method),
+            'agent_id' => $this->config->getAgentId(),
+            'post'     => $this->config->getPostKeys(),
         ];
 
-        $soapCredentials = $this->config->getSoapCredentials($method);
+        $soapCredentials = $this->config->getSoapCredentials();
         if ($soapCredentials) {
             $credentials['soap'] = $soapCredentials;
         }

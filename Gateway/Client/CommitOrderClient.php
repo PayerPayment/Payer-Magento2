@@ -29,13 +29,12 @@ class CommitOrderClient implements PayerClientInterface
 
     /**
      * @param array     $data
-     * @param string    $paymentMethod
      *
      * @return mixed
      */
-    public function placeRequest($data, $paymentMethod)
+    public function placeRequest($data)
     {
-        $payerResource = new Order($this->auth->setupClient($paymentMethod));
+        $payerResource = new Order($this->auth->setupClient());
 
         return $payerResource->commit($data);
     }

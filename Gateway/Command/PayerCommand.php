@@ -96,7 +96,7 @@ class PayerCommand implements CommandInterface
 
         $response = [];
         try {
-            $response['payer'] = $this->client->placeRequest($request, $payment->getMethod());
+            $response['payer'] = $this->client->placeRequest($request);
         } catch (\Exception $e) {
             $this->logger->debug($e->getMessage());
 

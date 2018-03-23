@@ -14,8 +14,7 @@ interface PayerClientInterface
     /**
      * Place request
      * @param $data
-     * @param $paymentMethod
      * @return mixed
      */
-    public function placeRequest($data, $paymentMethod);
+    public function placeRequest($data);
 }

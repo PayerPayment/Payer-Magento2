@@ -47,7 +47,7 @@ class RequestAddress
     public function getData($in, $zip)
     {
         try {
-            $gateway    = $this->payerApi->setupClient('invoice');
+            $gateway    = $this->payerApi->setupClient();
             $getAddress = new apiGetAddress($gateway);
             $challenge  = new Challenge($gateway);
             $challenge  = (array)$challenge->create();

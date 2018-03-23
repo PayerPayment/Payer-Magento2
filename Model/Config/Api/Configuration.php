@@ -123,6 +123,11 @@ class Configuration
      */
     public function payerCodeToConfigCode($payerCode)
     {
+        if ($payerCode == 'payer_settings/api') {
+
+            return $payerCode;
+        }
+
         if (strpos($payerCode, 'payer_checkout_') !== false) {
 
             return $payerCode;
@@ -171,17 +176,17 @@ class Configuration
         return (bool) $value;
     }
 
-    public function getAgentId($method)
+    public function getAgentId()
     {
-        $value = $this->getConfigValue($method, 'agent_id');
+        $value = $this->getConfigValue('payer_settings/api', 'agent_id');
 
         return $value;
     }
 
-    public function getPostKeys($method)
+    public function getPostKeys()
     {
-        $key1 = $this->getConfigValue($method, 'key_1', $encrypted = false);
-        $key2 = $this->getConfigValue($method, 'key_2', $encrypted = false);
+        $key1 = $this->getConfigValue('payer_settings/api', 'key_1', $encrypted = false);
+        $key2 = $this->getConfigValue('payer_settings/api', 'key_2', $encrypted = false);
 
         return [
             'key_1' => $key1,
@@ -189,10 +194,10 @@ class Configuration
         ];
     }
 
-    public function getSoapCredentials($method)
+    public function getSoapCredentials()
     {
-        $username = $this->getConfigValue($method, 'soap_username', $encrypted = false);
-        $password = $this->getConfigValue($method, 'soap_password', $encrypted = false);
+        $username = $this->getConfigValue('payer_settings/api', 'soap_username', $encrypted = false);
+        $password = $this->getConfigValue('payer_settings/api', 'soap_password', $encrypted = false);
 
         if ($username && $password) {
 

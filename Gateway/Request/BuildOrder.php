@@ -61,7 +61,7 @@ class BuildOrder implements \Payer\Checkout\Gateway\Request\OrderActionBuilderIn
         $payerMethod    = $this->config->paymentCodeToPayerCode($paymentMethod);
 
         try {
-            $purchase   = new \Payer\Sdk\Resource\Purchase($this->auth->setupClient($paymentMethod));
+            $purchase   = new \Payer\Sdk\Resource\Purchase($this->auth->setupClient());
             $address    = $order->getBillingAddress();
 
             $customer   = $this->customerBuilder->build($address);

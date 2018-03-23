@@ -29,13 +29,12 @@ class SettleClient implements PayerClientInterface
 
     /**
      * @param array     $data
-     * @param string    $paymentMethod
      *
      * @return mixed
      */
-    public function placeRequest($data, $pamentMethod)
+    public function placeRequest($data)
     {
-        $payerResource = new Purchase($this->auth->setupClient($paymentMethod));
+        $payerResource = new Purchase($this->auth->setupClient());
 
         return $payerResource->settlement($data);
     }

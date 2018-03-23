@@ -20,9 +20,46 @@
         </section>
 
         <section id="payment">
+            <group id="payer_settings" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Payer Settings</label>
+                <attribute type="displayIn">recommended_solutions</attribute>
+                <group id="api" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Api</label>
+                    <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Agent ID</label>
+                    </field>
+                    <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Key 1</label>
+                    </field>
+                    <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Key 2</label>
+                    </field>
+                    <field id="soap_username" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Soap username</label>
+                    </field>
+                    <field id="soap_password" translate="label" type="text" sortOrder="66" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Soap password</label>
+                    </field>
+                </group>
+                <group id="get_address" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Get Address</label>
+                    <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                </group>
+            </group>
             <group id="payer_checkout_card" translate="label" type="text" sortOrder="50" showInDefault="1"
                    showInWebsite="1" showInStore="1">
                 <label>Payer Checkout Card</label>
+                <attribute type="displayIn">recommended_solutions</attribute>
+
                 <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Enabled</label>
@@ -31,18 +68,6 @@
                 <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Title</label>
-                </field>
-                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Agent ID</label>
-                </field>
-                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 1</label>
-                </field>
-                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 2</label>
                 </field>
                 <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
                        showInStore="1">
@@ -160,6 +185,7 @@
             <group id="payer_checkout_invoice" translate="label" type="text" sortOrder="50" showInDefault="1"
                    showInWebsite="1" showInStore="1">
                 <label>Payer Checkout Invoice</label>
+                <attribute type="displayIn">recommended_solutions</attribute>
                 <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Enabled</label>
@@ -168,26 +194,6 @@
                 <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Title</label>
-                </field>
-                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Agent ID</label>
-                </field>
-                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 1</label>
-                </field>
-                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 2</label>
-                </field>
-                <field id="soap_username" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Soap username</label>
-                </field>
-                <field id="soap_password" translate="label" type="text" sortOrder="66" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Soap password</label>
                 </field>
                 <field id="interaction_minimal" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1"
                        showInStore="1">
@@ -310,6 +316,7 @@
             <group id="payer_checkout_bank" translate="label" type="text" sortOrder="50" showInDefault="1"
                    showInWebsite="1" showInStore="1">
                 <label>Payer Checkout Bank</label>
+                <attribute type="displayIn">recommended_solutions</attribute>
                 <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Enabled</label>
@@ -318,18 +325,6 @@
                 <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Title</label>
-                </field>
-                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Agent ID</label>
-                </field>
-                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 1</label>
-                </field>
-                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 2</label>
                 </field>
                 <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
                        showInStore="1">
@@ -442,6 +437,7 @@
             <group id="payer_checkout_installment" translate="label" type="text" sortOrder="50" showInDefault="1"
                    showInWebsite="1" showInStore="1">
                 <label>Payer Checkout Installment</label>
+                <attribute type="displayIn">recommended_solutions</attribute>
                 <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Enabled</label>
@@ -450,26 +446,6 @@
                 <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Title</label>
-                </field>
-                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Agent ID</label>
-                </field>
-                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 1</label>
-                </field>
-                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 2</label>
-                </field>
-                <field id="soap_username" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Soap username</label>
-                </field>
-                <field id="soap_password" translate="label" type="text" sortOrder="66" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Soap password</label>
                 </field>
                 <field id="interaction_minimal" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1"
                        showInStore="1">
@@ -587,6 +563,7 @@
             <group id="payer_checkout_swish" translate="label" type="text" sortOrder="50" showInDefault="1"
                    showInWebsite="1" showInStore="1">
                 <label>Payer Checkout Swish</label>
+                <attribute type="displayIn">recommended_solutions</attribute>
                 <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Enabled</label>
@@ -595,18 +572,6 @@
                 <field id="title" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1"
                        showInStore="1">
                     <label>Title</label>
-                </field>
-                <field id="agent_id" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Agent ID</label>
-                </field>
-                <field id="key_1" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 1</label>
-                </field>
-                <field id="key_2" translate="label" type="text" sortOrder="61" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
-                    <label>Key 2</label>
                 </field>
                 <field id="test_mode" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1"
                        showInStore="1">
