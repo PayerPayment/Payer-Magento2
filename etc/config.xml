@@ -8,7 +8,9 @@
                 <debug>1</debug>
                 <active>0</active>
                 <model>PayerCardFacade</model>
-                <order_status>pending</order_status>
+                <order_status>payer_pending</order_status>
+                <auth_order_status>payer_on_hold</auth_order_status>
+                <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
                 <title>Payer Checkout Card</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
@@ -30,7 +32,9 @@
                 <debug>1</debug>
                 <active>0</active>
                 <model>PayerInvoiceFacade</model>
-                <order_status>pending</order_status>
+                <order_status>payer_pending</order_status>
+                <auth_order_status>payer_on_hold</auth_order_status>
+                <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
                 <title>payer checkout Invoice</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
@@ -52,7 +56,9 @@
                 <debug>1</debug>
                 <active>0</active>
                 <model>PayerBankFacade</model>
-                <order_status>pending</order_status>
+                <order_status>payer_pending</order_status>
+                <auth_order_status>payer_on_hold</auth_order_status>
+                <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
                 <title>payer checkout Bank</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
@@ -74,7 +80,9 @@
                 <debug>1</debug>
                 <active>0</active>
                 <model>PayerInstallmentFacade</model>
-                <order_status>pending</order_status>
+                <order_status>payer_pending</order_status>
+                <auth_order_status>payer_on_hold</auth_order_status>
+                <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
                 <title>payer checkout Installment</title>
                 <min_order_total>1000</min_order_total>
                 <allowspecific>0</allowspecific>
@@ -93,12 +101,13 @@
                 <distribution_type>Email</distribution_type>
             </payer_checkout_installment>
 
-
             <payer_checkout_swish>
                 <debug>1</debug>
                 <active>0</active>
                 <model>PayerSwishFacade</model>
-                <order_status>pending</order_status>
+                <order_status>payer_pending</order_status>
+                <auth_order_status>payer_on_hold</auth_order_status>
+                <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
                 <title>payer checkout Swish</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
