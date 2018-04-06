@@ -36,6 +36,10 @@ class UpgradeData implements UpgradeDataInterface
             include('upgrade-1.0.1/data-status-state.php');
         }
 
+        if (version_compare($context->getVersion(), '1.0.2') < 0) {
+            include('upgrade-1.0.2/data-status-state.php');
+        }
+
         $installer->endSetup();
     }
 }

@@ -31,7 +31,7 @@ $installer->getConnection()->insertArray(
         [
             'status'     => 'payer_pending',
             'state'      => 'new',
-            'is_default' => 1,
+            'is_default' => 0,
         ],
         [
             'status'     => 'payer_acknowledged',
