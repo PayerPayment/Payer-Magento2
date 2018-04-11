@@ -11,7 +11,7 @@
                 <order_status>payer_pending</order_status>
                 <auth_order_status>payer_on_hold</auth_order_status>
                 <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
-                <title>Payer Checkout Card</title>
+                <title>Card payment</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
@@ -35,7 +35,7 @@
                 <order_status>payer_pending</order_status>
                 <auth_order_status>payer_on_hold</auth_order_status>
                 <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
-                <title>payer checkout Invoice</title>
+                <title>Invoice, x days (No extra fee / fee x kr </title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
@@ -59,7 +59,7 @@
                 <order_status>payer_pending</order_status>
                 <auth_order_status>payer_on_hold</auth_order_status>
                 <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
-                <title>payer checkout Bank</title>
+                <title>Bank payment (direct)</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
@@ -83,7 +83,7 @@
                 <order_status>payer_pending</order_status>
                 <auth_order_status>payer_on_hold</auth_order_status>
                 <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
-                <title>payer checkout Installment</title>
+                <title>Part Payment</title>
                 <min_order_total>1000</min_order_total>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
@@ -108,7 +108,7 @@
                 <order_status>payer_pending</order_status>
                 <auth_order_status>payer_on_hold</auth_order_status>
                 <acknowledged_order_status>payer_acknowledged</acknowledged_order_status>
-                <title>payer checkout Swish</title>
+                <title>Swish Payment</title>
                 <allowspecific>0</allowspecific>
                 <can_authorize>1</can_authorize>
                 <can_capture>1</can_capture>
