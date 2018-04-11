@@ -12,6 +12,11 @@ define([
   'use strict';
 
   payerCheckout.requestUri = url.build('payer/checkout/getaddress/getaddress');
+
+  if ( window.checkoutConfig.getAddress.isActive != true) {
+      return Component;
+  }
+
   return Component.extend({
     defaults: {
       template: 'Payer_Checkout/form/element/get-address',

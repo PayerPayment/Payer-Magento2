@@ -114,6 +114,7 @@ class ConfigProvider implements ConfigProviderInterface
         return [
             'payment' => $data,
             'reviewHandlingFeeDisplayMode' => $this->getHandlingFeeDisplayMode(),
+            'getAddress' => $this->getAddressConfig(),
         ];
     }
 
@@ -285,5 +286,23 @@ class ConfigProvider implements ConfigProviderInterface
 
         return $returnData;
 
+    }
+
+    /**
+     *
+     * @return array
+     */
+    protected function getAddressConfig()
+    {
+        $enabled = $this->scopeConfig->getValue(
+            'payment/payer_settings/get_address/active',
+            ScopeInterface::SCOPE_STORE
+        );
+
+        $returnData = [
+            'isActive' => $enabled,
+        ];
+
+        return $returnData;
     }
 }
