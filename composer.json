@@ -13,7 +13,7 @@
     "license": "Apache-2.0",
     "require": {
         "php": "~7.0.0",
-        "payer/sdk": "1.*"
+        "payer/sdk": "^1.1.11"
     },
     "autoload": {
         "files": [
