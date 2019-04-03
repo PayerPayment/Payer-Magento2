@@ -140,35 +140,6 @@
                 >
                 <label>Developers / Advanced</label>
                     <field
-                        id="callback_uri_override"
-                        translate="label"
-                        type="select"
-                        sortOrder="20"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Activate Callback URI override</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    </field>
-                    <field
-                        id="callback_uri"
-                        translate="label"
-                        type="text"
-                        sortOrder="30"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Callback/Push URI override
-                            &lt;br /&gt;
-                            &lt;small&gt;
-                            &lt;i&gt;will override base-url part&lt;/i&gt;
-                            &lt;small&gt;
-                        </label>
-                        <can_be_empty>1</can_be_empty>
-                    </field>
-                    <field
                         id="icon_url"
                         translate="label"
                         type="text"
@@ -271,35 +242,6 @@
                 >
                 <label>Developers / Advanced</label>
                     <field
-                        id="callback_uri_override"
-                        translate="label"
-                        type="select"
-                        sortOrder="20"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Activate Callback URI override</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    </field>
-                    <field
-                        id="callback_uri"
-                        translate="label"
-                        type="text"
-                        sortOrder="30"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Callback/Push URI override
-                            &lt;br /&gt;
-                            &lt;small&gt;
-                            &lt;i&gt;will override base-url part&lt;/i&gt;
-                            &lt;small&gt;
-                        </label>
-                        <can_be_empty>1</can_be_empty>
-                    </field>
-                    <field
                             id="icon_url"
                             translate="label"
                             type="text"
@@ -391,35 +333,6 @@
                     showInStore="1"
                 >
                 <label>Developers / Advanced</label>
-                    <field
-                        id="callback_uri_override"
-                        translate="label"
-                        type="select"
-                        sortOrder="20"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Activate Callback URI override</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    </field>
-                    <field
-                        id="callback_uri"
-                        translate="label"
-                        type="text"
-                        sortOrder="30"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Callback/Push URI override
-                            &lt;br /&gt;
-                            &lt;small&gt;
-                            &lt;i&gt;will override base-url part&lt;/i&gt;
-                            &lt;small&gt;
-                        </label>
-                        <can_be_empty>1</can_be_empty>
-                    </field>
                     <field
                             id="icon_url"
                             translate="label"
@@ -518,35 +431,6 @@
                 >
                 <label>Developers / Advanced</label>
                     <field
-                        id="callback_uri_override"
-                        translate="label"
-                        type="select"
-                        sortOrder="20"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Activate Callback URI override</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    </field>
-                    <field
-                        id="callback_uri"
-                        translate="label"
-                        type="text"
-                        sortOrder="30"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Callback/Push URI override
-                            &lt;br /&gt;
-                            &lt;small&gt;
-                            &lt;i&gt;will override base-url part&lt;/i&gt;
-                            &lt;small&gt;
-                        </label>
-                        <can_be_empty>1</can_be_empty>
-                    </field>
-                    <field
                             id="icon_url"
                             translate="label"
                             type="text"
@@ -638,35 +522,6 @@
                     showInStore="1"
                 >
                 <label>Developers / Advanced</label>
-                    <field
-                        id="callback_uri_override"
-                        translate="label"
-                        type="select"
-                        sortOrder="20"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Activate Callback URI override</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    </field>
-                    <field
-                        id="callback_uri"
-                        translate="label"
-                        type="text"
-                        sortOrder="30"
-                        showInDefault="1"
-                        showInWebsite="1"
-                        showInStore="1"
-                    >
-                        <label>Callback/Push URI override
-                            &lt;br /&gt;
-                            &lt;small&gt;
-                            &lt;i&gt;will override base-url part&lt;/i&gt;
-                            &lt;small&gt;
-                        </label>
-                        <can_be_empty>1</can_be_empty>
-                    </field>
                     <field
                             id="icon_url"
                             translate="label"

@@ -360,19 +360,10 @@ class CallbackValidator
      */
     protected function payerValidation($payerData)
     {
-        $overrideCallback = $this->config->getOverrideCallbackUrl($payerData['payer_payment_type']);
-        $isTestMode       = $this->config->isTestMode($payerData['payer_payment_type']);
         $gateway          = $this->auth->setupClient($payerData['payer_payment_type']);
         $purchase         = new \Payer\Sdk\Resource\Purchase($gateway);
         $post             = $gateway->getPostService();
 
-        if ($overrideCallback && $isTestMode) {
-
-            return [
-                'isValid'    => true,
-                'message'    => 'Callback overridden in TestMode: No IP or Callback Validation'
-            ];
-        }
         if(!$post->is_valid_ip()) {
 
             return [

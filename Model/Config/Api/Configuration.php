@@ -210,39 +210,12 @@ class Configuration
         return false;
     }
 
-    public function getOverrideCallbackUrl($method)
-    {
-        $overrideCallback = $this->getConfigValue($method, 'developers/callback_uri_override');
-
-        if ($overrideCallback) {
-            $callbackUri = $this->getConfigValue($method, 'developers/callback_uri');
-
-            return $callbackUri;
-        }
-
-        return false;
-    }
-
-
     public function getCallbackUrls($method, $referenceId)
     {
-        $overrideCallback = $this->getConfigValue($method, 'developers/callback_uri_override');
-
-        if ($overrideCallback) {
-            $callbackUri = $this->getConfigValue($method, 'developers/callback_uri');
-
-            $urls = [
-                'authorize' => $callbackUri . 'index.php/payer/checkout/authorize',
-                'settle'    => $callbackUri . 'index.php/payer/checkout/settle',
-            ];
-        } else {
-            $urls =  [
-                'authorize' => $this->urlBuilder->getUrl('payer/checkout/authorize'),
-                'settle'    => $this->urlBuilder->getUrl('payer/checkout/settle'),
-            ];
-        }
-        $urls = array_merge($urls, [
-            'redirect' => $this->urlBuilder->getUrl(
+        $urls = [
+            'authorize' => $this->urlBuilder->getUrl('payer/checkout/authorize'),
+            'settle'    => $this->urlBuilder->getUrl('payer/checkout/settle'),
+            'redirect'  => $this->urlBuilder->getUrl(
                 'payer/checkout/fail',
                 [
                     '_query' => [
@@ -251,7 +224,7 @@ class Configuration
                     ]
                 ]
             ),
-            'success' => $this->urlBuilder->getUrl(
+            'success'   => $this->urlBuilder->getUrl(
                 'payer/checkout/success',
                 [
                     '_query' => [
@@ -260,7 +233,7 @@ class Configuration
                     ]
                 ]
             )
-        ]);
+        ];
 
         return $urls;
     }
