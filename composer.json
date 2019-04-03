@@ -12,7 +12,7 @@
     "homepage": "https://github.com/PayerPayment/Payer-PhpSdk",
     "license": "Apache-2.0",
     "require": {
-        "php": "~7.0.0",
+        "php": "^7.0.0",
         "payer/sdk": "^1.1.11"
     },
     "autoload": {
