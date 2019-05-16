@@ -363,8 +363,11 @@ class CallbackValidator
         $gateway          = $this->auth->setupClient($payerData['payer_payment_type']);
         $purchase         = new \Payer\Sdk\Resource\Purchase($gateway);
         $post             = $gateway->getPostService();
+        $isProxy          = $this->config->getIsProxy();
+        $skipIpValidation = $this->config->getSkipIpValidation();
 
-        if(!$post->is_valid_ip()) {
+
+        if(!$skipIpValidation && !$post->is_valid_ip($isProxy)) {
 
             return [
                 'isValid'    => false,
@@ -372,6 +375,7 @@ class CallbackValidator
                 'message'    => "INVALID IP {$_SERVER['REMOTE_ADDR']} \n"
             ];
         }
+
         if(!$post->is_valid_callback()) {
 
             return [

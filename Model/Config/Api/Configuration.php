@@ -123,7 +123,9 @@ class Configuration
      */
     public function payerCodeToConfigCode($payerCode)
     {
-        if ($payerCode == 'payer_settings/api') {
+        if ($payerCode == 'payer_settings/api' ||
+            $payerCode == 'payer_settings/advanced_callback'
+        ) {
 
             return $payerCode;
         }
@@ -313,6 +315,7 @@ class Configuration
     {
         return $this->getConfigValue($method, 'acknowledged_order_status');
     }
+
     /**
      * Get status for acknowledged order
      *
@@ -321,5 +324,21 @@ class Configuration
     public function getAuthOrderStatus($method)
     {
         return $this->getConfigValue($method, 'auth_order_status');
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsProxy()
+    {
+        return (bool)$this->getConfigValue('payer_settings/advanced_callback', 'is_proxy');
+    }
+
+    /**
+     * @return bool
+     */
+    public function getSkipIpValidation()
+    {
+        return (bool)$this->getConfigValue('payer_settings/advanced_callback', 'skip_ip_validation');
     }
 }
